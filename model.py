@@ -1,5 +1,6 @@
 phone_book = []
 start_book = []
+load = False
 PATH = "phone_book.txt"
 
 def get_pb():
@@ -7,7 +8,8 @@ def get_pb():
     return phone_book
 
 def load_file():
-    global phone_book, start_book
+    global phone_book, start_book, load
+    load = True
     with open(PATH, "r", encoding= "UTF-8") as file:
         data = file.readlines()
     for contact in data:
@@ -21,14 +23,17 @@ def add_contact(contact):
     global phone_book
     phone_book.append(contact)
 
-def save_file():
+def save_file(was_load):
     global phone_book
-    data = []
-    for contact in phone_book:
-        data.append(" - ".join([value for value in contact.values()]))
-    data = "\n".join(data)
-    with open(PATH, "w", encoding="UTF-8") as file:
-        file.write(data)
+    if was_load:
+        data = []
+        for contact in phone_book:
+            data.append(" - ".join([value for value in contact.values()]))
+        data = "\n".join(data)
+        with open(PATH, "w", encoding="UTF-8") as file:
+            file.write(data)
+        return True
+    return False
 
 def find_contact(desired_element):
     global phone_book

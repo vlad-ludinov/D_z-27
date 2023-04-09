@@ -10,8 +10,9 @@ def start_pb():
                 model.load_file()
                 view.print_info(txt.load_successful)
             case 2:
-                model.save_file()
-                view.print_info(txt.save_successful)
+                need_save = view.question_save(model.load, txt.need_save)
+                save = model.save_file(need_save)
+                view.print_info_save(save, txt.save_successful)
             case 3:
                 pb = list(enumerate(model.get_pb(), 1))
                 view.show_contact(pb, txt.no_contact_or_file)

@@ -1,5 +1,7 @@
 import text_fields as txt
 
+
+
 def main_menu():
     print(txt.menu_text)
     while True:
@@ -13,6 +15,13 @@ def print_info(message):
     print("\n" + "-" * len(message))
     print(message)
     print("-" * len(message) + "\n")
+
+def print_info_save(save, message):
+    if save:
+        print("\n" + "-" * len(message))
+        print(message)
+        print("-" * len(message) + "\n")
+
 
 def show_contact(book, message: str):
     if book:
@@ -45,3 +54,12 @@ def confirm(message):
 def desired_contact(message):
     desired_element = input(message)
     return desired_element
+
+def question_save(load, message):
+    if not load:
+        answer = input(message + "(y/n) -> ")
+        if answer.lower() == "y":
+            return True
+        else:
+            return False
+    return True
