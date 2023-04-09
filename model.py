@@ -16,3 +16,7 @@ def load_file():
                             "phone" : contact[1],
                             "comment" : contact[2]})
     start_book = phone_book.copy()
+
+def add_contact(contact):
+    global phone_book
+    phone_book.append(contact)

@@ -1,20 +1,13 @@
-
+import text_fields as txt
 
 def main_menu():
-    print("""Главное меню:
-    1. Открыть файл
-    2. Сохранить файл
-    3. Показать все контакты
-    4. Создать контакт
-    5. Найти контакт
-    7. Удалить контакт
-    8. Выход""")
+    print(txt.menu_text)
     while True:
-        choice = input("Выберите пункт меню: ")
+        choice = input(txt.choice_menu)
         if choice.isdigit() and 0 < int(choice) < 9:
             return int(choice)
         else:
-            print("Введите ЧИСЛО от 1 до 8")
+            print(txt.clue_input_menu)
 
 def print_info(message):
     print("\n" + "-" * len(message))
@@ -31,3 +24,11 @@ def show_contact(book: list[dict], message: str):
         print("-" * 63 + "\n")
     else:
         print(message)
+
+def new_contact():
+    print()
+    name = input(txt.new_name)
+    phone = input(txt.new_phone)
+    comment = input(txt.new_comment)
+    print()
+    return {"name" : name, "phone" : phone, "comment" : comment}

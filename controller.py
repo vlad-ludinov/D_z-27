@@ -15,7 +15,10 @@ def start_pb():
                 pb = model.get_pb()
                 view.show_contact(pb, txt.no_contact_or_file)
             case 4:
-                pass
+                new_contact = view.new_contact()
+                model.add_contact(new_contact)
+                view.print_info(txt.new_contact_successful)
+                print(model.phone_book)
             case 5:
                 pass
             case 6:
