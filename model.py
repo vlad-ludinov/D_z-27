@@ -30,6 +30,16 @@ def save_file():
     with open(PATH, "w", encoding="UTF-8") as file:
         file.write(data)
 
+def find_contact(desired_element):
+    global phone_book
+    found_contacts = []
+    for n, contact in enumerate(phone_book, 1):
+        for element in contact.values():
+            if element == desired_element:
+                found_contacts.append((n, contact))
+    return found_contacts
+
+
 def exit_pb():
     global phone_book, start_book
     if phone_book == start_book:

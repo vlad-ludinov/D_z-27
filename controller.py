@@ -13,14 +13,16 @@ def start_pb():
                 model.save_file()
                 view.print_info(txt.save_successful)
             case 3:
-                pb = model.get_pb()
+                pb = list(enumerate(model.get_pb(), 1))
                 view.show_contact(pb, txt.no_contact_or_file)
             case 4:
                 new_contact = view.new_contact()
                 model.add_contact(new_contact)
                 view.print_info(txt.new_contact_successful)
             case 5:
-                pass
+                desired_element = view.desired_contact(txt.find_element)
+                founds_contacts = model.find_contact(desired_element)
+                view.show_contact(founds_contacts, txt.no_element)
             case 6:
                 pass
             case 7:

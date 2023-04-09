@@ -14,12 +14,11 @@ def print_info(message):
     print(message)
     print("-" * len(message) + "\n")
 
-def show_contact(book: list[dict], message: str):
+def show_contact(book, message: str):
     if book:
-        max_len_comment = max([len(contact.get("comment")) for contact in book])
-        print(max_len_comment)
+        max_len_comment = max([len(contact.get("comment")) for _, contact in book])
         print("\n" + "-" * (47 + max_len_comment))
-        for n, contact in enumerate(book, 1):
+        for n, contact in book:
             print(f"{n:>3}. {contact.get('name'):<25}"
                   f"{contact.get('phone'):<15}"
                   f"{contact.get('comment'):<20}")
@@ -43,3 +42,6 @@ def confirm(message):
     else:
         return False
 
+def desired_contact(message):
+    desired_element = input(message)
+    return desired_element
