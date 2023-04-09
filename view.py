@@ -34,3 +34,12 @@ def new_contact():
     comment = input(txt.new_comment)
     print()
     return {"name" : name, "phone" : phone, "comment" : comment}
+
+def confirm(message):
+    print()
+    answer = input(message + "(y/n) -> ")
+    if answer.lower() == "y":
+        return True
+    else:
+        return False
+

@@ -26,4 +26,8 @@ def start_pb():
             case 7:
                 pass
             case 8:
-                pass
+                if model.exit_pb():
+                    if view.confirm(txt.is_changed):
+                        model.save_file()
+                view.print_info(txt.bye_bye)
+                exit()

@@ -29,3 +29,10 @@ def save_file():
     data = "\n".join(data)
     with open(PATH, "w", encoding="UTF-8") as file:
         file.write(data)
+
+def exit_pb():
+    global phone_book, start_book
+    if phone_book == start_book:
+        return False
+    else:
+        return True
