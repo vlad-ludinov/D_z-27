@@ -65,11 +65,15 @@ def change_contact_index(message1, message2):
     if index_change_contact.isdigit():
         return int(index_change_contact) - 1
     else:
+        print()
         print(message2)
+        print()
 
 def check_can_index(can_index, message):
     if not can_index:
+        print()
         print(message)
+        print()
 
 def replacing_contact(message, new_name, new_phone, new_comment):
     print(message)
@@ -77,4 +81,14 @@ def replacing_contact(message, new_name, new_phone, new_comment):
     phone = input(new_phone)
     comment = input(new_comment)
     return [name, phone, comment]
+
+def delete_contact_index(message1, message2):
+    delete_index = input(message1)
+    if delete_index.isdigit():
+        return int(delete_index) - 1 
+    else:
+        print()
+        print(message2)
+        print()
+
 

@@ -26,16 +26,25 @@ def start_pb():
                 view.show_contact(founds_contacts, txt.no_element)
             case 6:
                 index_change_contact = view.change_contact_index(txt.change_contact_number, txt.not_number)
-                can_index = model.check_index(index_change_contact)
-                view.check_can_index(can_index, txt.no_index)
-                if can_index:
-                    replacing_contact = view.replacing_contact(txt.new_contact_info, txt.new_name, txt.new_phone, txt.new_comment)
-                    model.change_contact(replacing_contact, index_change_contact)
+                if index_change_contact != None:
+                    can_index = model.check_index(index_change_contact)
+                    view.check_can_index(can_index, txt.no_index)
+                    if can_index:
+                        replacing_contact = view.replacing_contact(txt.new_contact_info, txt.new_name, txt.new_phone, txt.new_comment)
+                        model.change_contact(replacing_contact, index_change_contact)
+                        view.print_info(txt.change_contact_successful)
             case 7:
-                pass
+                index_delete_contact = view.delete_contact_index(txt.delete_contact_number, txt.not_number)
+                if index_delete_contact != None:
+                    can_index = model.check_index(index_delete_contact)
+                    view.check_can_index(can_index, txt.no_index)
+                    if can_index:
+                        model.delete_contact(index_delete_contact)
+                        view.print_info(txt.delete_contact_successful)
             case 8:
                 if model.exit_pb():
                     if view.confirm(txt.is_changed):
-                        model.save_file()
+                        if view.question_save(model.load, txt.need_save):
+                            _ = model.save_file(True)
                 view.print_info(txt.bye_bye)
                 exit()

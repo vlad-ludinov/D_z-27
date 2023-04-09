@@ -63,3 +63,7 @@ def check_index(index):
     if -1 < index < len(phone_book):
         return True
     return False
+
+def delete_contact(index):
+    global phone_book
+    phone_book.pop(index)
