@@ -10,7 +10,8 @@ def start_pb():
                 model.load_file()
                 view.print_info(txt.load_successful)
             case 2:
-                pass
+                model.save_file()
+                view.print_info(txt.save_successful)
             case 3:
                 pb = model.get_pb()
                 view.show_contact(pb, txt.no_contact_or_file)
@@ -18,7 +19,6 @@ def start_pb():
                 new_contact = view.new_contact()
                 model.add_contact(new_contact)
                 view.print_info(txt.new_contact_successful)
-                print(model.phone_book)
             case 5:
                 pass
             case 6:

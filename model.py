@@ -20,3 +20,12 @@ def load_file():
 def add_contact(contact):
     global phone_book
     phone_book.append(contact)
+
+def save_file():
+    global phone_book
+    data = []
+    for contact in phone_book:
+        data.append(" - ".join([value for value in contact.values()]))
+    data = "\n".join(data)
+    with open(PATH, "w", encoding="UTF-8") as file:
+        file.write(data)
