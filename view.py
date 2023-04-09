@@ -16,7 +16,18 @@ def main_menu():
         else:
             print("Введите ЧИСЛО от 1 до 8")
 
-def pritn_info(message):
+def print_info(message):
     print("\n" + "-" * len(message))
     print(message)
     print("-" * len(message) + "\n")
+
+def show_contact(book: list[dict], message: str):
+    if book:
+        print("\n" + "-" * 63)
+        for n, contact in enumerate(book, 1):
+            print(f"{n:>3}. {contact.get('name'):<20}"
+                  f"{contact.get('phone'):<20}"
+                  f"{contact.get('comment'):<20}")
+        print("-" * 63 + "\n")
+    else:
+        print(message)

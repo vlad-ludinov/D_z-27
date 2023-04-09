@@ -12,7 +12,8 @@ def start_pb():
             case 2:
                 pass
             case 3:
-                pass
+                pb = model.get_pb()
+                view.show_contact(pb, txt.no_contact_or_file)
             case 4:
                 pass
             case 5:
