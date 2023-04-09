@@ -1,15 +1,11 @@
-import text_fields as txt
-
-
-
-def main_menu():
-    print(txt.menu_text)
+def main_menu(menu_text, choice_menu, clue_input_menu):
+    print(menu_text)
     while True:
-        choice = input(txt.choice_menu)
+        choice = input(choice_menu)
         if choice.isdigit() and 0 < int(choice) < 9:
             return int(choice)
         else:
-            print(txt.clue_input_menu)
+            print(clue_input_menu)
 
 def print_info(message):
     print("\n" + "-" * len(message))
@@ -35,11 +31,11 @@ def show_contact(book, message: str):
     else:
         print(message)
 
-def new_contact():
+def new_contact(new_name, new_phone, new_comment):
     print()
-    name = input(txt.new_name)
-    phone = input(txt.new_phone)
-    comment = input(txt.new_comment)
+    name = input(new_name)
+    phone = input(new_phone)
+    comment = input(new_comment)
     print()
     return {"name" : name, "phone" : phone, "comment" : comment}
 
@@ -63,3 +59,22 @@ def question_save(load, message):
         else:
             return False
     return True
+
+def change_contact_index(message1, message2):
+    index_change_contact = input(message1)
+    if index_change_contact.isdigit():
+        return int(index_change_contact) - 1
+    else:
+        print(message2)
+
+def check_can_index(can_index, message):
+    if not can_index:
+        print(message)
+
+def replacing_contact(message, new_name, new_phone, new_comment):
+    print(message)
+    name = input(new_name)
+    phone = input(new_phone)
+    comment = input(new_comment)
+    return [name, phone, comment]
+

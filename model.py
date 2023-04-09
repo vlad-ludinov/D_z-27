@@ -44,10 +44,22 @@ def find_contact(desired_element):
                 found_contacts.append((n, contact))
     return found_contacts
 
-
 def exit_pb():
     global phone_book, start_book
     if phone_book == start_book:
         return False
     else:
         return True
+    
+def change_contact(contact, index):
+    global phone_book
+    pb = ["name", "phone", "comment"]
+    for i in range(len(contact)):
+        if contact[i] != "":
+            phone_book[index][pb[i]] = contact[i]
+
+def check_index(index):
+    global phone_book
+    if -1 < index < len(phone_book):
+        return True
+    return False
