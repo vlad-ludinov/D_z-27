@@ -1,12 +1,14 @@
 import view
-
+import model
+import text_fields as txt
 
 def start_pb():
     while True:
         choice = view.main_menu()
         match choice:
             case 1:
-                pass
+                model.load_file()
+                view.print_info(txt.load_successful)
             case 2:
                 pass
             case 3:

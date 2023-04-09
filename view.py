@@ -15,3 +15,8 @@ def main_menu():
             return int(choice)
         else:
             print("Введите ЧИСЛО от 1 до 8")
+
+def pritn_info(message):
+    print("\n" + "-" * len(message))
+    print(message)
+    print("-" * len(message) + "\n")
